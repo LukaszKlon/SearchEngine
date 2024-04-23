@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results for: {{ query }}</title>
+    <link rel="stylesheet" href="{% static 'search.css' %}">
+    <link rel="stylesheet" href="{% static 'display.css' %}">
+</head>
+<body>
+    <header>
+        <a href="../app">
+            <h1>
+                <span class="blue">MapleSearch</span> <img src="{% static 'logo.png' %}" class="logo">
+            </h1>
+        </a>
+    </header>
+
+    <main>
+        <hr>
+        <h2>Input text: {{ query }}</h2>
+        <hr>
+        {% for record in page_list %}
+        <a href="{{ record.link }}">
+            <div class="record">
+                <div>
+                    <span class="title">{{ record.title }}</span>
+                </div>
+                <span class="value">{{ record.value }}%</span>
+                <br>
+            </div>
+        </a>
+        {% endfor %}
+    </main>
+</body>
+</html>

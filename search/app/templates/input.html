@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search the web</title>
+    <link rel="stylesheet" href="{% static 'search.css' %}">
+    <link rel="stylesheet" href="{% static 'input.css' %}">
+</head>
+<body>
+    <header>
+        <a href="../app">
+            <h1>
+                <span class="blue">MapleSearch</span> <img src="{% static 'logo.png' %}" class="logo">
+            </h1>
+        </a>
+    </header>
+
+    <main>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.text }}
+            <br>
+            <br>
+            
+            <input type="checkbox" id="svd" name="svd">
+            SVD
+
+            <br>
+            <input type="submit" value="Search">
+        </form>
+    </main>
+</body>
+</html>
